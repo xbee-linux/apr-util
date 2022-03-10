@@ -1,0 +1,38 @@
+schema-version: 1.0
+
+type: builder
+
+description: |
+  The Apache Portable Runtime Utility Library provides a predictable and consistent interface to underlying client library interfaces. This application programming interface assures predictable if not identical behaviour regardless of which libraries are available on a given platform.
+  Installed Program: apu-1-config
+  Installed Library: libaprutil-1.so
+  Installed Directory: /usr/lib/apr-util-1
+  Short Descriptions
+    apu-1-config: is an APR-util script designed to allow easy command line access to APR-util configuration parameters
+    libaprutil-1.so: contains functions that provide a predictable and consistent interface to underlying client library interfaces
+
+
+
+in:
+  version: 1.6.1
+
+
+dependencies:
+  - apr
+  - openssl
+  - expat
+
+
+provision:
+  - url:
+      from: https://archive.apache.org/dist/apr/apr-util-{% version %}.tar.bz2
+      todir: "{% xbeeSrc %}"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix=/usr --with-apr=/usr --with-gdbm=/usr --with-openssl=/usr --with-crypto
+        - make
+        - make install DESTDIR={% xbeeOut %}
+      directory: "{% xbeeSrc %}/apr-util-{% version %}"
+

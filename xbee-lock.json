@@ -1,0 +1,35 @@
+{
+    "Ids": [
+        {
+            "From": {
+                "origin": "https://github.com/xbee-linux/apr.git"
+            },
+            "Commit": "6a48b47c6b857dadbcb83e68ea64ed4b292a2a39"
+        },
+        {
+            "From": {
+                "version": "20.04",
+                "origin": "https://github.com/xbeerepository/ubuntu.git"
+            },
+            "Commit": "a0ad6c66ba7bcdd59131db165a059615d8cfc547"
+        },
+        {
+            "From": {
+                "origin": "https://github.com/xbee-linux/openssl.git"
+            },
+            "Commit": "80f722a279c0d8e0cb466e2b63534c9893ee8d03"
+        },
+        {
+            "From": {
+                "origin": "https://github.com/xbee-linux/zlib.git"
+            },
+            "Commit": "40a714e973ffb6c73e9d47872f811e076c5e1ebc"
+        },
+        {
+            "From": {
+                "origin": "https://github.com/xbee-linux/expat.git"
+            },
+            "Commit": "b1b48ecaeba9ff86082fcdc45295075e0519008f"
+        }
+    ]
+}
