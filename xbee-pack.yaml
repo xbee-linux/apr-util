@@ -13,26 +13,27 @@ description: |
 
 
 
-in:
-  version: 1.6.1
+var:
+  version: 1.6.3
 
+builders:
+  - apr
+  - expat
 
 dependencies:
-  - apr
   - openssl
-  - expat
 
 
 provision:
   - url:
-      from: https://archive.apache.org/dist/apr/apr-util-{% version %}.tar.bz2
-      todir: "{% xbeeSrc %}"
+      from: https://archive.apache.org/dist/apr/apr-util-{{ .version }}.tar.bz2
+      todir: "{{ .xbee.src }}"
 
 build:
   - shell:
       cmds:
         - ./configure --prefix=/usr --with-apr=/usr --with-gdbm=/usr --with-openssl=/usr --with-crypto
         - make
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/apr-util-{% version %}"
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/apr-util-{{ .version }}"
 
